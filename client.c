@@ -6,7 +6,7 @@
 /*   By: anaciri <anaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 05:48:50 by anaciri           #+#    #+#             */
-/*   Updated: 2022/04/16 01:13:27 by anaciri          ###   ########.fr       */
+/*   Updated: 2022/04/17 01:08:26 by anaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,35 +48,36 @@ void	send_message(int pid, char *str)
 	send_char(pid, str[i]);
 }
 
+int	send(int pid, char *str)
+{
+	if (kill(pid, 0) == -1)
+	{
+		ft_putstr("Invalid PID\n");
+		return (1);
+	}
+	else
+	{
+		if (pid == 0)
+		{	
+			ft_putstr("Invalid PID\n");
+			return (1);
+		}
+		send_message(pid, str);
+		return (0);
+	}
+}
 
 int	main(int ac, char **av)
 {
-	int	i;
+	int	pid;
 
 	if (ac != 3)
 		return (1);
-	if (ft_atoi(av[1], &i) == 0)
+	if (ft_atoi(av[1], &pid) == 0)
 	{
 		ft_putstr("invalid argument");
 		return (1);
 	}
 	else
-	{
-		if (kill(i, 0) == -1)
-		{
-			ft_putstr("Invalid PID\n");
-			return (1);
-		}
-		else
-		{
-			if(i == 0)
-			{
-				
-				ft_putstr("Invalid PID\n");
-				return(1);
-			}
-			send_message(i, av[2]);
-			return(0);
-		}
-	}
+		return (send(pid, av[2]));
 }

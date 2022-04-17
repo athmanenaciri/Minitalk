@@ -6,13 +6,12 @@
 /*   By: anaciri <anaciri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 06:54:41 by anaciri           #+#    #+#             */
-/*   Updated: 2022/04/16 01:15:36 by anaciri          ###   ########.fr       */
+/*   Updated: 2022/04/17 00:56:52 by anaciri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <unistd.h>
-#include <stdio.h>
 
 pid_t	getpid(void);
 void	ft_putchar(char c);
