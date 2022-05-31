@@ -31,3 +31,5 @@ The purpose of this project is to code a small data exchange program using *UNIX
 - [`sleep`]
 - [`usleep`]
 - [`exit`]
+
+to break my code use : ./client PID $(printf "%.s@" {1..100000})
